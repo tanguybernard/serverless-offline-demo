@@ -1,0 +1,63 @@
+service: lambda-invoke-aws-sdk-v3
+
+configValidationMode: error
+
+plugins:
+  - serverless-dynamodb
+  - serverless-offline # must be loaded after
+
+
+resources:
+  Resources: ${file(offline/migrations/todo.yml)}
+
+provider:
+  #iamRoleStatements:
+  #  - Action:
+  #      - lambda:InvokeAsync
+  #      - lambda:InvokeFunction
+  #    Effect: Allow
+  #    Resource: "*"
+  memorySize: 128
+  name: aws
+  region: us-east-1
+  runtime: nodejs18.x
+  stage: dev
+  versionFunctions: false
+
+functions:
+  hello:
+    handler: src/handler.hello
+    events:
+      - http:
+          method: get
+          path: test-handler
+  toBeInvoked:
+    handler: src/handler.toBeInvoked
+  getOne:
+    handler: src/handler.getOne
+    events:
+      - http:
+          path: users/{id}
+          method: get
+          cors: true
+
+  getTodo:
+    handler: src/handler-todo.getTodo
+    events:
+      - http:
+          path: todos/{id}
+          method: get
+          cors: true
+
+custom:
+  serverless-dynamodb:
+    start:
+      port: 8181
+      docker: false
+      migrate: true
+      seed: true
+    seed:
+      test:
+        sources:
+          - table: todosTable
+            sources: [./offline/migrations/todo-seed.json]

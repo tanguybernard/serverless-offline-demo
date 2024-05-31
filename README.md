@@ -26,6 +26,16 @@ Solution:
 source: https://github.com/rynop/dynamodb-local/issues/30#issuecomment-704665906
 
 
+REsult:
+
+- .dynamodb
+    - DynamDBLocal.jar
+    - dynamodb-local-metadata.json
+    - DynamoDBLocal_lib
+      - ... 
+- src
+
+
 
 ## Credits
 
