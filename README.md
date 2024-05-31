@@ -63,5 +63,7 @@ https://dev.to/didil/serverless-testing-strategies-4g92
 
 https://medium.com/a-man-with-no-server/running-aws-lambda-and-api-gateway-locally-serverless-offline-3c64b3e54772
 
+Serverless DynamoDb local
 
+https://www.serverless.com/plugins/serverless-dynamodb-local/
 
