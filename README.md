@@ -14,6 +14,10 @@ Demo to call Lambda and call dynamoDB
     npx sls offline start
 
 
+## Explanation
+
+sls offline, launch a web server, to simulate API Gateway
+
 ## SLS Dynamo DB
 
 
@@ -48,6 +52,10 @@ https://github.com/dherault/serverless-offline/tree/master/examples/lambda-invok
 Example React + DynamoDB
 
 https://github.com/99x/serverless-react-boilerplate/blob/aws-react/api/todo/serverless.yml
+
+Exemple SDK DynamoDB
+
+https://docs.aws.amazon.com/fr_fr/sdk-for-javascript/v3/developer-guide/dynamodb-example-dynamodb-utilities.html
 
 Tuto
 
