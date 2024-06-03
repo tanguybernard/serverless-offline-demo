@@ -9,7 +9,17 @@ Demo to call Lambda and call dynamoDB
     npm i
 
 
-## Run
+## Invoke a function
+
+Avec fichier:
+
+    npx serverless invoke local --function getId --path data/test.json
+
+Sans :
+
+    npx sls invoke local --function getId --data '{"pathParameters":{"id":"123456"}}'
+
+## Run api gateway
 
     npx sls offline start
 

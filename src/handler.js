@@ -41,31 +41,12 @@ export async function hello() {
 }
 
 
-export async function getOne(event, context, callback)  {
-    context.callbackWaitsForEmptyEventLoop = false;
-
+export async function getId(event, context, callback)  {
     return {
         body: JSON.stringify({id: event.pathParameters.id}),
         statusCode: 200,
     };
-
-    /*connectToDatabase()
-        .then(() => {
-            User.findById(event.pathParameters.id)
-                .then(user => callback(null, {
-                    statusCode: 200,
-                    body: JSON.stringify(user)
-                }))
-                .catch(err => callback(null, {
-                    statusCode: err.statusCode || 500,
-                    headers: { 'Content-Type': 'text/plain' },
-                    body: 'Could not fetch the user.'
-                }));
-        });
-
-
-     */
-};
+}
 
 
 export async function getUser(event, context, callback)  {

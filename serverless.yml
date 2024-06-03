@@ -33,8 +33,8 @@ functions:
           path: test-handler
   toBeInvoked:
     handler: src/handler.toBeInvoked
-  getOne:
-    handler: src/handler.getOne
+  getId:
+    handler: src/handler.getId
     events:
       - http:
           path: users/{id}
