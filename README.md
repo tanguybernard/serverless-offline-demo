@@ -26,10 +26,9 @@ Sans :
 
 ## Explanation
 
-sls offline, launch a web server, to simulate API Gateway
+SLS offline, launch a web server and can simulate an api gateway
 
 ## SLS Dynamo DB
-
 
 Issue : Download DynamoDB local jar doesnt work !
 
@@ -40,7 +39,7 @@ Solution:
 source: https://github.com/rynop/dynamodb-local/issues/30#issuecomment-704665906
 
 
-REsult:
+Result:
 
 - .dynamodb
     - DynamDBLocal.jar
@@ -77,3 +76,11 @@ Serverless DynamoDb local
 
 https://www.serverless.com/plugins/serverless-dynamodb-local/
 
+
+Tuto serverless and sam
+
+https://dev.to/hoangleitvn/how-to-build-test-and-deploy-lambda-function-to-aws-53cj
+
+Comparaison solution
+
+https://lumigo.io/aws-lambda-deployment/
