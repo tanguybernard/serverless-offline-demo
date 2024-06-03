@@ -11,18 +11,11 @@ resources:
   Resources: ${file(offline/migrations/todo.yml)}
 
 provider:
-  #iamRoleStatements:
-  #  - Action:
-  #      - lambda:InvokeAsync
-  #      - lambda:InvokeFunction
-  #    Effect: Allow
-  #    Resource: "*"
   memorySize: 128
   name: aws
-  region: us-east-1
+  region: eu-west-3 # Paris
   runtime: nodejs18.x
   stage: dev
-  versionFunctions: false
 
 functions:
   hello:

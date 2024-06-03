@@ -1,0 +1,19 @@
+app: aws-node-project
+service: serverless-lab
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-3
+  timeout: 10 # You set a timeout of 10 seconds for the functions
+  role: arn:aws:iam::272235520632:role/serverlessLabs # Enter your Arn role here
+  memorySize: 512
+
+functions:
+  first_function:
+    handler: index.handler
+    events:
+      - http:
+          path: hello
+          method: get
