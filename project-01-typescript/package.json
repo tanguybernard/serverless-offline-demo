@@ -1,0 +1,10 @@
+{
+  "name": "project-00",
+  "version": "1.0.0",
+  "description": "",
+  "type": "commonjs",
+  "devDependencies": {
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.4.5"
+  }
+}

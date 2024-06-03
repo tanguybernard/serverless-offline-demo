@@ -1,0 +1,24 @@
+app: aws-node-project
+service: serverless-lab
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-dynamodb-local
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-3
+  timeout: 10 # You set a timeout of 10 seconds for the functions
+  role: arn:aws:iam::272235520632:role/serverlessLabs # Enter your Arn role here
+  memorySize: 512
+
+functions:
+  typescript_function:
+    handler: index.handlerTypescript
+    events:
+      - http:
+          path: hello
+          method: get
