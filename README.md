@@ -19,7 +19,7 @@ Sans :
 
     npx sls invoke local --function getId --data '{"pathParameters":{"id":"123456"}}'
 
-## Run api gateway
+## Run local environment
 
     npx sls offline start
 

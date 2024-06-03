@@ -27,7 +27,7 @@ provider:
 functions:
   hello:
     handler: src/handler.hello
-    events:
+    events: # api-gateway
       - http:
           method: get
           path: test-handler
