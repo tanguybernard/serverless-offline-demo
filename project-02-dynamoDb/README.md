@@ -8,6 +8,11 @@ Demo to call Lambda and call dynamoDB
 
     npm i
 
+## Add DynamoDB Local jar into project-02-dynamoDB/.dynamo
+
+Téléchargement :
+
+https://docs.aws.amazon.com/fr_fr/amazondynamodb/latest/developerguide/DynamoDBLocal.html
 
 ## Invoke a function
 
