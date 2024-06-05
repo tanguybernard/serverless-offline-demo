@@ -1,0 +1,52 @@
+service: aws-sqs-offline
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline-sqs
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+
+
+functions:
+  hello:
+    handler: handler.hello
+
+  QueueSendMessage:
+    handler: handler.sendMessage
+    name: Queue-SendMessage-Lambda
+    description: to send sqs message
+
+  QueueReceiveMessage:
+    handler: handler.receiveMessage
+    name: Queue-ReceiveMessage-Lambda
+    description: to receive sqs message
+    events:
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - myFirstQueue
+              - Arn
+          batchSize: 1
+
+# you can add CloudFormation resource templates here
+resources:
+  Resources:
+    myFirstQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: myFirstQueue
+
+
+custom:
+  serverless-offline-sqs:
+    autoCreate: true # create queue if not exists
+    apiVersion: '2012-11-05'
+    endpoint: http://0.0.0.0:9324
+    region: eu-west-3
+    accessKeyId: local
+    secretAccessKey: local
+    skipCacheInvalidation: false
