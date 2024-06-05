@@ -4,7 +4,6 @@ frameworkVersion: '3'
 
 plugins:
   - serverless-plugin-typescript
-  - serverless-dynamodb-local
   - serverless-offline
 
 provider:
@@ -16,9 +15,9 @@ provider:
   memorySize: 512
 
 functions:
-  typescript_function:
-    handler: index.handlerTypescript
+  first_function:
+    handler: index.handler
     events:
       - http:
           path: hello
-          method: get
+          method: post

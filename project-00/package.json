@@ -2,5 +2,9 @@
   "name": "project-00",
   "version": "1.0.0",
   "description": "",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.4.0"
+  }
 }

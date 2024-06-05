@@ -3,8 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "type": "commonjs",
+  "scripts": {},
   "devDependencies": {
+    "@aws-sdk/client-lambda": "^3.504.0",
+    "serverless": "^3.38.0",
+    "serverless-offline": "^13.4.0",
     "serverless-plugin-typescript": "^2.1.5",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.11.2",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@types/node": "^20.14.2"
   }
 }

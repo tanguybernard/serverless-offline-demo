@@ -7,12 +7,17 @@
   "scripts": {
     "offline": "NODE_ENV=offline sls offline start"
   },
+  "keywords": [
+    "backend",
+    "serverless",
+    "typescript",
+    "nodejs"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "serverless": "^3.38.0",
     "serverless-dynamodb": "^0.2.53",
-    "serverless-dynamodb-local": "^0.2.40",
     "serverless-offline": "^13.4.0"
   },
   "dependencies": {

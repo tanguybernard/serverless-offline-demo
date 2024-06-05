@@ -8,9 +8,10 @@
     "outDir": ".build",
     "moduleResolution": "node",
     "lib": ["es2015"],
-    "rootDir": "./"
+    "rootDir": "./",
+    "types": ["node"]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
   ]
 }

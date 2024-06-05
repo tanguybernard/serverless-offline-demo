@@ -1,13 +1,13 @@
-export async function handlerTypescript(event: any) {
-  return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Go Serverless v3.0! Your function executed successfully!!',
-        input: event,
-      },
-      null,
-      2
-    ),
-  };
-};
+export async function handler(event: any) {
+    let body: {name: string} = {name: 'world'};
+    if (event.body) {
+        body = event.body
+    }
+
+    const name = body.name;
+
+    return {
+        statusCode: 200,
+        body: `Hello, ${name}`,
+    };
+}

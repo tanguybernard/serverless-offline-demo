@@ -1,72 +1,59 @@
-<!--
-title: 'AWS NodeJS Example'
-description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework.'
-layout: Doc
-framework: v3
-platform: AWS
-language: nodeJS
-priority: 1
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+# Demo to Deploy Lambda to aws and test function locally
+
+## Conf
+
+serverless.yml
 
 
-# Serverless Framework AWS NodeJS Example
+    service: serverless-lab
+    
+    provider:
+        name: aws
+        runtime: nodejs18.x
+        region: eu-west-3
+        timeout: 10 # You set a timeout of 10 seconds for the functions
+        role: arn:aws:iam::155318317806:role/serverlessLabs # Enter your Arn role here
+        memorySize: 512
+    
+    functions:
+        first_function:
+            handler: index.handler
+            events:
+                - http:
+                    path: hello
+                    method: get    
 
-This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework. The deployed function does not include any event definitions as well as any kind of persistence (database). For more advanced configurations check out the [examples repo](https://github.com/serverless/examples/) which includes integrations with SQS, DynamoDB or examples of functions that are triggered in `cron`-like manner. For details about configuration of specific `events`, please refer to our [documentation](https://www.serverless.com/framework/docs/providers/aws/events/).
 
-## Usage
+## Deploy to aws
 
-### Deployment
+    serverless deploy
 
-In order to deploy the example, you need to run the following command:
 
-```
-$ serverless deploy
-```
+## Deploy only function
 
-After running deploy, you should see output similar to:
+    serverless deploy function -f functionName
 
-```bash
-Deploying aws-node-project to stage dev (us-east-1)
+NOTE: La commande sls deploy function déploie une fonction individuelle sans AWS CloudFormation. Cette commande remplace simplement le fichier zip vers lequel pointe votre pile CloudFormation. Il s'agit d'un moyen beaucoup plus rapide de déployer les modifications apportées au code.
 
-✔ Service deployed to stack aws-node-project-dev (112s)
+https://www.serverless.com/framework/docs/providers/aws/cli-reference/deploy-function
 
-functions:
-  hello: aws-node-project-dev-hello (1.5 kB)
-```
+## Invoke function from aws
 
-### Invocation
+    npx serverless invoke -f first_function
 
-After successful deployment, you can invoke the deployed function by using the following command:
 
-```bash
-serverless invoke --function hello
-```
+## Invoke local
 
-Which should result in response similar to the following:
+    npx serverless invoke local -f first_function
 
-```json
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": {}\n}"
-}
-```
+## Delete CloudFormation Stack aws
 
-### Local development
+    serverless remove
 
-You can invoke your function locally by using the following command:
 
-```bash
-serverless invoke local --function hello
-```
+## Credits
 
-Which should result in response similar to the following:
 
-```
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
+https://www.freecodecamp.org/news/how-to-deploy-aws-lambda-with-serverless/
+
+https://github.com/Caesarsage/Devops-projects/tree/main/project-08

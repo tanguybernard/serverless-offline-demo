@@ -1,7 +1,11 @@
 
 .idea
-.dynamodb
+project-02-dynamoDb/.dynamodb
 
 node_modules
 
 .DS_Store
+
+.serverless
+
+.build
