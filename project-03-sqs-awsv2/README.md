@@ -1,6 +1,8 @@
+# Sqs Test with aws sdk v2
 
+Note: aws sdk v3 incompatible with serverless-offline-sqs
 
-## Install ElastiqMq (standalone or docker)
+## 1. Install ElastiqMq (standalone or docker)
 
 https://github.com/softwaremill/elasticmq?tab=readme-ov-file
 
@@ -10,17 +12,19 @@ java -jar elasticmq-server-1.4.2.jar
 --> localhost:9324
 
 
-## Execute
+## 2. Execute
 
-Queue
+Run Queue
 
     npm run queue-start
 
-Server
+Run Server
 
     npm run offline
 
-## Invoke
+## 3. Invoke
+
+Test Hello World
 
     npx sls invoke local -f hello
 
@@ -28,7 +32,9 @@ Send Message
 
     npx sls invoke local -f QueueSendMessage
 
-Show message received in the "offline" console
+## 4. Show message received in the "offline" console
+
+...
 
 # Credits
 
