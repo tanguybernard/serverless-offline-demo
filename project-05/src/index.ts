@@ -1,4 +1,4 @@
-import 'module-alias/register';
+import './moduleAliasDefined';
 
 import serverless from 'serverless-http';
 import bodyParser from 'body-parser';
