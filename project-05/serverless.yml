@@ -1,0 +1,30 @@
+service: my-express-application
+frameworkVersion: '3'
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: eu-west-3
+  stage: dev
+  timeout: 10 # You set a timeout of 10 seconds for the functions
+  role: arn:aws:iam::272235520632:role/serverlessLabs # Enter your Arn role here
+  memorySize: 512
+
+functions:
+  app: # Par default toutes les requetes sont traité par express
+    handler: src/index.handler
+    events:
+      - httpApi: '*'
+
+    getUser: # (Optional) Il est possible de ciblé les routes
+      handler: src/index.handler
+      events:
+        - http: 'GET /users/{proxy+}'
+    createUser: # (Optional)
+      handler: src/index.handler
+      events:
+        - http: 'POST /users'
